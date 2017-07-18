@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Metric from './components/Metric';
 import './App.css';
 
 class App extends Component {
@@ -40,15 +40,23 @@ class App extends Component {
         </header>
         <div>
           {this.state.metricData.metrics
-            .filter(metric =>
-              `${metric.industry}`.toUpperCase().indexOf(
-                this.state.searchTerm.toUpperCase()) >= 0,
+            .filter(
+              metric =>
+                `${metric.industry} ${metric.metricName} ${metric.platform}`
+                  .toUpperCase()
+                  .indexOf(this.state.searchTerm.toUpperCase()) >= 0,
             )
             .map(metric =>
               <div>
-                {JSON.stringify(metric)}
+                <table>
+                  <Metric
+                    industry={metric.industry}
+                    name={metric.metricName}
+                    platform={metric.platform}
+                  />
+                </table>
               </div>,
-            )};
+            )}
         </div>
       </div>
     );
