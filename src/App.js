@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import Metric from './components/Metric';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {CSSTransitionGroup} from 'react-transition-group'; // ES6
+import CircularProgress from 'material-ui/CircularProgress';
 import './App.css';
-import logo from './logo-on-light.svg';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loaded: 3,
       metricData: {
-        metrics: [{ platform: 'FaceBook' }],
+        metrics: [{}],
       },
       searchTerm: '',
     };
@@ -20,6 +23,7 @@ class App extends Component {
       .then(d => d.json())
       .then(d => {
         this.setState({
+          loaded: 0,
           metricData: d,
         });
       });
@@ -31,41 +35,57 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
+      <MuiThemeProvider>
         <div className="row">
-          <header>
-            <img src={logo} className="col-sm-6 col-sm-offset-3" alt="logo" />
+          <div className="card search">
             <input
-              className="col-sm-8 col-sm-offset-2"
+              className="col-xs-10 col-xs-offset-1"
               onChange={this.handleSearchTermChange}
               value={this.state.searchTerm}
               type="text"
             />
-          </header>
-          <div className="row">
-            {this.state.metricData.metrics
-              .filter(
-                metric =>
-                  `${metric.industry} ${metric.metricName} ${metric.platform}`
-                    .toUpperCase()
-                    .replace(/\s/g, '')
-                    .indexOf(
-                      this.state.searchTerm.toUpperCase().replace(/\s/g, ''),
-                    ) >= 0,
-              )
-              .map(metric =>
-                <Metric
-                  metricName={metric.metricName}
-                  metricRate={metric.metricRate}
-                  sourceUrl={metric.sourceUrl}
-                  updatedDate={metric.updatedDate}
-                  platform={metric.platform}
-                  industry={metric.industry}
-                />,
-              )}
+          </div>
+          <div className="container">
+            <div className="row">
+              <div className="row">
+                  <CSSTransitionGroup
+                      transitionName="example"
+                      transitionEnterTimeout={500}
+                      transitionLeaveTimeout={300}>
+                      {this.state.metricData.metrics
+                          .filter(
+                              metric =>
+                              `${metric.industry} ${metric.metricName} ${metric.platform} ${metric.metricName} ${metric.platform} ${metric.industry} ${metric.metricName} ${metric.industry} ${metric.platform} ${metric.metricName} ${metric.industry}`
+                                  .toUpperCase()
+                                  .replace(/\s/g, '')
+                                  .indexOf(
+                                      this.state.searchTerm
+                                          .toUpperCase()
+                                          .replace(/\s/g, ''),
+                                  ) >= 0 &&
+                              this.state.metricData.metrics[0].updatedDate !=
+                              undefined,
+                          )
+                          .map(metric =>
+                              <div>
+                                  <Metric
+                                      metricName={metric.metricName}
+                                      metricRate={metric.metricRate}
+                                      sourceUrl={metric.sourceUrl}
+                                      updatedDate={metric.updatedDate}
+                                      platform={metric.platform}
+                                      industry={metric.industry}
+                                  />
+                              </div>,
+                          )}
+                  </CSSTransitionGroup>
+
+                <CircularProgress thickness={this.state.loaded} />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </MuiThemeProvider>
     );
   }
 }
