@@ -1,6 +1,5 @@
 .card {
     padding: 2rem;
-    width: 300px;
     margin: .5rem;
     height: 220px;
 }
@@ -8,4 +7,13 @@
 .bottom-align-text {
     position: absolute;
     bottom: 2rem;
+}
+
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

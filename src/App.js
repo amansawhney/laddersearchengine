@@ -42,6 +42,7 @@ class App extends Component {
               type="text"
             />
           </header>
+          <div className="row">
             {this.state.metricData.metrics
               .filter(
                 metric =>
@@ -62,6 +63,7 @@ class App extends Component {
                   industry={metric.industry}
                 />,
               )}
+          </div>
         </div>
       </div>
     );
