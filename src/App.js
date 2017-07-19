@@ -33,35 +33,41 @@ class App extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-sm-8 col-sm-offset-2">
-            <header>
-              <img src={logo} className="App-logo" alt="logo" />
-              <input className="col-sm-12"
-                onChange={this.handleSearchTermChange}
-                value={this.state.searchTerm}
-                type="text"
-              />
-            </header>
-            <div>
-              {this.state.metricData.metrics
-                .filter(
-                  metric =>
-                    `${metric.industry} ${metric.metricName} ${metric.platform}`
-                      .toUpperCase()
-                      .indexOf(this.state.searchTerm.toUpperCase()) >= 0,
-                )
-                .map(metric =>
-                  <div>
-                    <table>
-                      <Metric
-                        industry={metric.industry}
-                        name={metric.metricName}
-                        platform={metric.platform}
-                      />
-                    </table>
-                  </div>,
-                )}
-            </div>
+          <header>
+            <img src={logo} className="col-sm-6 col-sm-offset-3" alt="logo" />
+            <input
+              className="col-sm-8 col-sm-offset-2"
+              onChange={this.handleSearchTermChange}
+              value={this.state.searchTerm}
+              type="text"
+            />
+          </header>
+          <div>
+            <table className="col-sm-8 col-sm-offset-2">
+              <thead>
+                <tr>
+                  <th>Industry</th>
+                  <th>Metric Name</th>
+                  <th>Patform</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.metricData.metrics
+                  .filter(
+                    metric =>
+                      `${metric.industry} ${metric.metricName} ${metric.platform}`
+                        .toUpperCase()
+                        .indexOf(this.state.searchTerm.toUpperCase()) >= 0,
+                  )
+                  .map(metric =>
+                    <Metric
+                      industry={metric.industry}
+                      name={metric.metricName}
+                      platform={metric.platform}
+                    />,
+                  )}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
