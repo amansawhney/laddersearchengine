@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Metric from './components/Metric';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {CSSTransitionGroup} from 'react-transition-group'; // ES6
+import { CSSTransitionGroup } from 'react-transition-group'; // ES6
 import CircularProgress from 'material-ui/CircularProgress';
 import './App.css';
 
@@ -29,6 +29,7 @@ class App extends Component {
       });
   }
 
+
   handleSearchTermChange(event) {
     this.setState({ searchTerm: event.target.value });
   }
@@ -48,37 +49,37 @@ class App extends Component {
           <div className="container">
             <div className="row">
               <div className="row">
-                  <CSSTransitionGroup
-                      transitionName="example"
-                      transitionEnterTimeout={500}
-                      transitionLeaveTimeout={300}>
-                      {this.state.metricData.metrics
-                          .filter(
-                              metric =>
-                              `${metric.industry} ${metric.metricName} ${metric.platform} ${metric.metricName} ${metric.platform} ${metric.industry} ${metric.metricName} ${metric.industry} ${metric.platform} ${metric.metricName} ${metric.industry}`
-                                  .toUpperCase()
-                                  .replace(/\s/g, '')
-                                  .indexOf(
-                                      this.state.searchTerm
-                                          .toUpperCase()
-                                          .replace(/\s/g, ''),
-                                  ) >= 0 &&
-                              this.state.metricData.metrics[0].updatedDate !=
-                              undefined,
-                          )
-                          .map(metric =>
-                              <div>
-                                  <Metric
-                                      metricName={metric.metricName}
-                                      metricRate={metric.metricRate}
-                                      sourceUrl={metric.sourceUrl}
-                                      updatedDate={metric.updatedDate}
-                                      platform={metric.platform}
-                                      industry={metric.industry}
-                                  />
-                              </div>,
-                          )}
-                  </CSSTransitionGroup>
+                <CSSTransitionGroup
+                  transitionName="example"
+                  transitionEnterTimeout={500}
+                  transitionLeaveTimeout={300}
+                >
+                  {this.state.metricData.metrics
+                    .filter(
+                      metric =>
+                        `${metric.industry} ${metric.metricName} ${metric.platform} ${metric.metricName} ${metric.platform} ${metric.industry} ${metric.metricName} ${metric.industry} ${metric.platform} ${metric.metricName} ${metric.industry}`
+                          .toUpperCase()
+                          .replace(/\s/g, '')
+                          .indexOf(
+                            this.state.searchTerm
+                              .toUpperCase()
+                              .replace(/\s/g, ''),
+                          ) >= 0 &&
+                        this.state.metricData.metrics[0].updatedDate !=
+                          undefined,
+                    )
+                    .map(metric =>
+                      <Metric
+                        key={metric.id}
+                        metricName={metric.metricName}
+                        metricRate={metric.metricRate}
+                        sourceUrl={metric.sourceUrl}
+                        updatedDate={metric.updatedDate}
+                        platform={metric.platform}
+                        industry={metric.industry}
+                      />,
+                    )}
+                </CSSTransitionGroup>
 
                 <CircularProgress thickness={this.state.loaded} />
               </div>

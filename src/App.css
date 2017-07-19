@@ -1,18 +1,26 @@
 .card {
-  padding: 2rem;
+  padding: 3rem;
   margin: .5rem;
-  height: 220px;
+  height: 270px;
 }
 .search {
-  height: 68px;
+  height: 9rem;
   width: 100%;
   background-color: #2196f3;
+}
+a {
+  font-weight: bold;
+
+  transition: color 300ms;
+}
+a:hover {
+  text-decoration: none;
+  color: #2196f3;
 }
 .bottom-align-text {
   position: absolute;
   bottom: 2rem;
 }
-
 .loader {
   position: relative;
   width: 100%;
@@ -20,7 +28,6 @@
   background-color: white;
   border: 5px solid #eceff1;
   border-radius: 50%;
-
 }
 
 .loader:after {
@@ -84,19 +91,19 @@
 }
 /* #Animation */
 .example-enter {
-    opacity: 0.01;
+  opacity: 0.01;
 }
 
 .example-enter.example-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in;
+  opacity: 1;
+  transition: opacity 500ms ease-out;
 }
 
 .example-leave {
-    opacity: 1;
+  opacity: 1;
 }
 
 .example-leave.example-leave-active {
-    opacity: 0.01;
-    transition: opacity 300ms ease-in;
+  opacity: 0.01;
+  transition: opacity 300ms ease-out;
 }
