@@ -42,27 +42,26 @@ class App extends Component {
               type="text"
             />
           </header>
-          <div className="col-sm-12">
-                {this.state.metricData.metrics
-                  .filter(
-                    metric =>
-                      `${metric.industry} ${metric.metricName} ${metric.platform}`
-                        .toUpperCase()
-                        .replace(/\s/g, '')
-                        .indexOf(
-                          this.state.searchTerm
-                            .toUpperCase()
-                            .replace(/\s/g, ''),
-                        ) >= 0,
-                  )
-                  .map(metric =>
-                    <Metric
-                      industry={metric.industry}
-                      name={metric.metricName}
-                      platform={metric.platform}
-                    />,
-                  )}
-          </div>
+            {this.state.metricData.metrics
+              .filter(
+                metric =>
+                  `${metric.industry} ${metric.metricName} ${metric.platform}`
+                    .toUpperCase()
+                    .replace(/\s/g, '')
+                    .indexOf(
+                      this.state.searchTerm.toUpperCase().replace(/\s/g, ''),
+                    ) >= 0,
+              )
+              .map(metric =>
+                <Metric
+                  metricName={metric.metricName}
+                  metricRate={metric.metricRate}
+                  sourceUrl={metric.sourceUrl}
+                  updatedDate={metric.updatedDate}
+                  platform={metric.platform}
+                  industry={metric.industry}
+                />,
+              )}
         </div>
       </div>
     );

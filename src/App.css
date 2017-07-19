@@ -1,0 +1,11 @@
+.card {
+    padding: 2rem;
+    width: 300px;
+    margin: .5rem;
+    height: 220px;
+}
+
+.bottom-align-text {
+    position: absolute;
+    bottom: 2rem;
+}
