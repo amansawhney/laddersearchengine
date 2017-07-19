@@ -42,22 +42,18 @@ class App extends Component {
               type="text"
             />
           </header>
-          <div>
-            <table className="col-sm-8 col-sm-offset-2">
-              <thead>
-                <tr>
-                  <th>Industry</th>
-                  <th>Metric Name</th>
-                  <th>Patform</th>
-                </tr>
-              </thead>
-              <tbody>
+          <div className="col-sm-12">
                 {this.state.metricData.metrics
                   .filter(
                     metric =>
                       `${metric.industry} ${metric.metricName} ${metric.platform}`
                         .toUpperCase()
-                        .indexOf(this.state.searchTerm.toUpperCase()) >= 0,
+                        .replace(/\s/g, '')
+                        .indexOf(
+                          this.state.searchTerm
+                            .toUpperCase()
+                            .replace(/\s/g, ''),
+                        ) >= 0,
                   )
                   .map(metric =>
                     <Metric
@@ -66,8 +62,6 @@ class App extends Component {
                       platform={metric.platform}
                     />,
                   )}
-              </tbody>
-            </table>
           </div>
         </div>
       </div>
