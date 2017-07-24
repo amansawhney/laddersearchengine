@@ -157,7 +157,7 @@ class App extends Component {
           },
           {
             id: 12,
-            metricName: 'CTR',
+            metricName: 'Click Through Rate',
             metricRate: '0.71%',
             sourceUrl:
               'http://www.wordstream.com/blog/ws/2017/02/28/facebook-advertising-benchmarks',
@@ -169,7 +169,7 @@ class App extends Component {
           },
           {
             id: 13,
-            metricName: 'CTR',
+            metricName: 'Click Through Rate',
             metricRate: '1.61%',
             sourceUrl:
               'http://www.wordstream.com/blog/ws/2017/02/28/facebook-advertising-benchmarks',
@@ -181,7 +181,7 @@ class App extends Component {
           },
           {
             id: 14,
-            metricName: 'CTR',
+            metricName: 'Click Through Rate',
             metricRate: '1.59%',
             sourceUrl:
               'http://www.wordstream.com/blog/ws/2017/02/28/facebook-advertising-benchmarks',
@@ -193,7 +193,7 @@ class App extends Component {
           },
           {
             id: 15,
-            metricName: 'CTR',
+            metricName: 'Click Through Rate',
             metricRate: '1.04%',
             sourceUrl:
               'http://www.wordstream.com/blog/ws/2017/02/28/facebook-advertising-benchmarks',
@@ -205,7 +205,7 @@ class App extends Component {
           },
           {
             id: 16,
-            metricName: 'CTR',
+            metricName: 'Click Through Rate',
             metricRate: '0.90%',
             sourceUrl:
               'http://www.wordstream.com/blog/ws/2017/02/28/facebook-advertising-benchmarks',
@@ -217,7 +217,7 @@ class App extends Component {
           },
           {
             id: 17,
-            metricName: 'CTR',
+            metricName: 'Click Through Rate',
             metricRate: '1.20%',
             sourceUrl: 'wordstream.com',
             sourceDateTo: '2017-07-11',
@@ -228,7 +228,7 @@ class App extends Component {
           },
           {
             id: 18,
-            metricName: 'CTR',
+            metricName: 'Click Through Rate',
             metricRate: '1.77%',
             sourceUrl:
               'https://cdn2.hubspot.net/hubfs/234606/Nanigans%20-%20Q4%202016%20Global%20Facebook%20Advertising%20Benchmark%20Report.pdf?t=1499439383527&utm_campaign=GA-Report-Global%20FAB%202016%20Q4&utm_source=hs_automation&utm_medium=email&utm_content=40820782&_hsenc=p2ANqtz--DvZe5vRdba9a8tv1Dv0orwkDZSUC7BC0fiK3T1MLCerYS2YWKiTNSOxVzQ5PKUgoJgLGLtqPAkfbMWnmK6wusjzY43A&_hsmi=40820782',
