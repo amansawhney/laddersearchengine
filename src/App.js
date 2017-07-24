@@ -29,7 +29,6 @@ class App extends Component {
       });
   }
 
-
   handleSearchTermChange(event) {
     this.setState({ searchTerm: event.target.value });
   }
@@ -40,6 +39,7 @@ class App extends Component {
         <div className="row">
           <div className="card search">
             <input
+              autoFocus
               className="col-xs-10 col-xs-offset-1"
               onChange={this.handleSearchTermChange}
               value={this.state.searchTerm}
